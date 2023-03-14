@@ -1,0 +1,25 @@
+ *Name of a component starts with a capital letter 
+ *Functional component returns some piece of jsx or react element or composition of react element or a componenet itself 
+ * In jsx inside {} brackets we can write any piece of Js
+ *When we use other function in some functional component its known as component composition(when we use componenet  inside componenet)or composing components
+ *JSX can only have one parent
+ *<> or <React.Fragments> both is same
+ *We keep a representation of a dom and is known as virtual dom and we need virtual dom for reconciliation 
+ *Reconciliation is an algorithm that is used to diff one tree from other tree and it determines what needs to be changed in ui and what not
+ *We will not use index(of map) as key bcoz the order of items may change 
+ *There are two ways to export :
+    1] Default export :In this we can export only one component if 
+    exporting by default then no need of using {} when importing and if exporting by name then we have to use {} while importing
+    2] Named export 
+*Named import is not object destructuring 
+*If we want to import all the components being expoted then we can use import * as Obj form "reqrdfileLocation"
+*When we export default then wile importing if we dont use the same name then its okay we can rename it 
+*When we write input in jsx then that and the one in html are different ,in html one if we write in keyboard then it will be shown in the input box but in the jsx it wont be able to write the text in the box 
+*React uses one way data binding 
+*If we need to maintain a variable that changes itself then we need to maintain a variable that is a react kind of variable (react variable ) it is kind of like a state variable
+*Every component in react maintains a state and we can put the varibles on to that state 
+*Hook is just a function
+*useState(write default value in the paramaters ) returns a array and first variable of the array is the variable name 
+*We cannot modify our variable directly it can only be done using a function
+and its call two way binding
+*We use state variables so that the variables are in sync with the ui
