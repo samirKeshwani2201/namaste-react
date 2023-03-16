@@ -23,3 +23,27 @@
 *We cannot modify our variable directly it can only be done using a function
 and its call two way binding
 *We use state variables so that the variables are in sync with the ui
+*Whenever we change a state variable react will refresh the whole componenet and not just rerender the changed component 
+*We have to rerender the whole component with updated state varibles values 
+*Microservice artitecture means instead of having just only one project we wil have small small different projects .we will deploy only the project we require ,and not the whole application
+*We will not call our api inside component because componenet gets rerender Whenever the state changes so 
+* There are two ways to handle api calls :
+    1] 
+        loads=> api call => render page 
+
+    2] (first render then useEffect)
+        loads=> render the page (initial)=>call the api=>update the ui
+
+    2 way is better 
+*To implement 2 way react provides access to useEffect hook
+*There are two times when the componenet changes they are:1)on change of state ,2)Props changes 
+*Best super power of react is its reconciliation algorithm 
+* useEffect(()=>{
+callback function
+},[dependency array])
+*The callback function wil be called on Every rerender but if we dont want that then we give a empty dependency array so it calls the function only one time  and that also after the rendering of ui is finished 
+*In the dependency array we pass the state variable and when that state variable chages at that time the callback function will be called 
+*So we will have a empty dependency array and call the api there
+*Conditional rendering :We have to render either shimmer ui or api ui or normal ui
+*If we dont want to return a componenet then we can do a early return 
+*Any js expression can run inside {} and not statement and to run the statement we enclose it inside the () with , separated
