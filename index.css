@@ -42,3 +42,15 @@
  .card>h3{
     word-wrap: break-word;
  }
+
+ .shimmer-card{
+   width: 200px;
+   height: 200px;
+   background: lightgrey;
+   margin: 20px;
+ }
+
+
+  .menu{
+   display: flex;
+  }

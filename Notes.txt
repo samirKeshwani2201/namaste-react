@@ -47,3 +47,22 @@ callback function
 *Conditional rendering :We have to render either shimmer ui or api ui or normal ui
 *If we dont want to return a componenet then we can do a early return 
 *Any js expression can run inside {} and not statement and to run the statement we enclose it inside the () with , separated
+*If we dont have dependency array in useEffect then it means useEffect is not depended on anything,and its default behaviour is to be called after render so everytime our component renders useEffect will be called
+*Never create a componenet inside componenet,because when parent componenet is render then the child componenet is creted that many times unnecessarily 
+*Never write the useState inside an if else and also inside for loop
+*useState is a hook that react gives us to create local state variables inside our functional component so never 
+use useState outside our functional componenet
+*We can create more than one useEffect
+*Prefer to use cdn for images and not the localstorge because cdn is faster ,cache image ,100% uptime 
+*createBrowserRouter() here inside the parameter we will have some configuration ,this is the place where we will define what will happen if we load /path or any other site ,its argument contains array of paths corresponding to components 
+*RouterProvider  is a componenet and at the rendering time write root.render(<RouterProvider router={appRouter }/>)
+*Along with RouterProvider we pass some configuration
+*Anchor tag refreshes the whole page so instead of that to redirect to another page we have link and the syntax is similar to that of Anchor tag and instead of "href" use "to" 
+*There are 2 types of routing :
+    [1] Client Side Routing 
+    [2] Server Side Routing :Here all our pages come from server 
+*Outlet will be filled by children configuartion ,the content in outlet should change ,All the childrens will go into the outlet according to the route 
+*Whenever we need to do Conditional routing or dynamic routing we will put a outlet there 
+*We can read a dynamic url using useParams
+
+restaurant.cards[2].groupedCard.cardGroupMap.REGULAR.cards[1].card.card.itemCards[0].card.info.name
