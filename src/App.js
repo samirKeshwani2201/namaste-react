@@ -8,6 +8,7 @@ import About from "./components/About"
 import Error from "./components/Error";
 import Contact from "./components/Contact";
 import RestaurantMenu from "./components/RestrauntMenu";
+import Profile from "./components/Profile";
 
 
 /**
@@ -40,8 +41,6 @@ const AppLayout = () => {
     );
 };
 
-
-
 const appRouter = createBrowserRouter([
     {
         path: "/",
@@ -55,6 +54,13 @@ const appRouter = createBrowserRouter([
             {
                 path: "/about",
                 element: <About />,
+                children:[
+                    {
+                        path:"profile",
+                        // If we gave path:"/profile" then it will be considered as localhost:1234/profile 
+                        element:<Profile/>
+                    }
+                ]
             },
             {
                 path: "/contact",

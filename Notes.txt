@@ -64,5 +64,18 @@ use useState outside our functional componenet
 *Outlet will be filled by children configuartion ,the content in outlet should change ,All the childrens will go into the outlet according to the route 
 *Whenever we need to do Conditional routing or dynamic routing we will put a outlet there 
 *We can read a dynamic url using useParams
-
-restaurant.cards[2].groupedCard.cardGroupMap.REGULAR.cards[1].card.card.itemCards[0].card.info.name
+*The most important part of a class based component is render method ,without it we cant creat class based componenet,this render method is responsible for returning some jsx into the dom
+**[10]
+*In class based componenet constructor is the place which is used for the initialization  and so the constructor is the best place for creatig the state
+*In this.setState we pass the modified object 
+*We never mutate state directly 
+Neve do this.state.variable=newValue
+*componenetDidMount() will be called after the render 
+constructor=> componenet renders =>componenetDidMount
+*When react is rendering things it does it in two phase :
+    1]Render phase (constructor is called and render method is called)
+    2]Commit Phase (Here actually react is modifying the dom) and componenetDidMount is done after we have updated the dom
+*componenetDidMount will be called after first render 
+*componenetDidUpdate will be called after every next render 
+*In functional componenet to do work of componenetDidUnmount in the useEffect first parameter we return a function ,and it will be called when we are unmounting it so we can do the clean up work 
+*"this" is shared between all the methods of the class
