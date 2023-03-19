@@ -79,3 +79,12 @@ constructor=> componenet renders =>componenetDidMount
 *componenetDidUpdate will be called after every next render 
 *In functional componenet to do work of componenetDidUnmount in the useEffect first parameter we return a function ,and it will be called when we are unmounting it so we can do the clean up work 
 *"this" is shared between all the methods of the class
+**11
+*We keep all the functions in a different file named util so that it can be accessed by any componenet
+*Whenever we add a add a event listner we have to clear that before the component unmounts 
+*To build large scale production ready website it will not work if we bundle the whole components into just a single index.js which the parcel is doing ,so we should do chunking/code splitting/dynamic bundling /lazy loading /on demand loading/Dynamic import 
+*Now whichever component we want to lazy load ,we will go to the componenet wherever we have the import of the componenet to be lazy loaded and there we will lazy load it (dynamic import )
+*When we try to render the lazy loaded componenet then when the whole bundle is coming in the app then it takes sometime and at that time only the react tries to load that component so it creates a routing error as react tries to load a componenet that does not exist so it suspends the loading so to fix it we use Suspense 
+*Never dynamically load the componenets inside another componenet,bcoz it will be lazy loaded after every cycle 
+const Instamart = lazy(() => import("./components/Instamart"));
+dont write above code in the Applayout component bcoz it will then lazy load it on every render 

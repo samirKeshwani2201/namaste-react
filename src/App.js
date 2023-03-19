@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header"
 import Body from "./components/Body"
@@ -9,26 +9,11 @@ import Error from "./components/Error";
 import Contact from "./components/Contact";
 import RestaurantMenu from "./components/RestrauntMenu";
 import Profile from "./components/Profile";
+import Shimmer from "./components/Shimmer";
+// import Instamart from "./components/Instamart";
 
-
-/**
-      // Header 
-                // Logo
-                // Listitems(Right side )
-                // Cart 
-            // Body
-                // SearchBar 
-                // Restrauntlist
-                      // Restaurant card
-                            // Image 
-                            // Name 
-                            // Rating   
-                            // Cusines
-            // Footer 
-                // Links
-                // Copyright
- */
-
+// Dynamic import 
+const Instamart = lazy(() => import("./components/Instamart"));
 
 const AppLayout = () => {
     return (
@@ -54,11 +39,11 @@ const appRouter = createBrowserRouter([
             {
                 path: "/about",
                 element: <About />,
-                children:[
+                children: [
                     {
-                        path:"profile",
+                        path: "profile",
                         // If we gave path:"/profile" then it will be considered as localhost:1234/profile 
-                        element:<Profile/>
+                        element: <Profile />
                     }
                 ]
             },
@@ -70,6 +55,13 @@ const appRouter = createBrowserRouter([
             {
                 path: "/restaurant/:resId",
                 element: <RestaurantMenu />,
+
+            },
+            {
+                path: "/instamart",
+                element: <Suspense fallback={<Shimmer />}>
+                    <Instamart />
+                </Suspense>,
 
             },
         ],

@@ -1819,4 +1819,7 @@ export const restaurantList = [
         subtype: "basic",
     },
 ];
- 
+
+
+
+export const FETCH_MENU_URL = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=17.385044&lng=78.486671&restaurantId=";
