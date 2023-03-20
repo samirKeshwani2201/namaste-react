@@ -1,4 +1,9 @@
- .header {
+ @tailwind base;
+ @tailwind components;
+ @tailwind utilities;
+
+
+ /* .header {
      display: flex;
      justify-content: space-between;
      margin: 10px;
@@ -54,3 +59,4 @@
   .menu{
    display: flex;
   }
+  */

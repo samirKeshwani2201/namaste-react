@@ -39,16 +39,20 @@ const Body = () => {
 
     if (allrestaurants.length !== 0 && filteredrestaurants?.length === 0) return <h1>No restraunt match your search</h1>
 
+
+
     return (allrestaurants?.length === 0) ? (<Shimmer />) : (
         <>
-            <div className="search-container">
-                <input type="text" className="search-input" placeholder="Search" value={searchText}
+            <div className=" shadow-lg search-container my-5 p-4 bg-pink-50">
+                <input type="text" className="focus:bg-green-50 p-2 m-2" placeholder="Search" value={searchText}
                     onChange={(e) => {
                         setSearchText(e.target.value)
                     }
                     }
                 />
-                <button className="search-btn"
+                <button
+
+                    className="m-2 p-2 bg-purple-900  hover:bg-gray-500   text-white rounded-md"
                     onClick={
                         () => {
                             // nedd to filter the data 
@@ -59,10 +63,10 @@ const Body = () => {
                 >Search</button>
             </div>
 
-            <div className="restaurant-list">
+            <div className="flex flex-wrap justify-center">
                 {
                     filteredrestaurants.map(restraurant => {
-                        return <Link key={restraurant.data.id} to={"/restaurant/" + restraurant.data.id}><RestrauntCard {...restraurant.data} />
+                        return <Link key={restraurant.data.id} to={"/restaurant/" + restraurant.data.id}><RestrauntCard   {...restraurant.data} />
                         </Link>
                     })
                 }

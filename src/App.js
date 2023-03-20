@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense  } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header"
 import Body from "./components/Body"
@@ -16,6 +16,7 @@ import Shimmer from "./components/Shimmer";
 const Instamart = lazy(() => import("./components/Instamart"));
 
 const AppLayout = () => {
+
     return (
         <>
             <Header />
@@ -34,7 +35,7 @@ const appRouter = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <Body />,
+                element: <Body  />,
             },
             {
                 path: "/about",

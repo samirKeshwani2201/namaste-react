@@ -88,3 +88,24 @@ constructor=> componenet renders =>componenetDidMount
 *Never dynamically load the componenets inside another componenet,bcoz it will be lazy loaded after every cycle 
 const Instamart = lazy(() => import("./components/Instamart"));
 dont write above code in the Applayout component bcoz it will then lazy load it on every render 
+*Ways to add css into the project:
+  *Normal Native css
+  *SCSS
+  *Inline CSS
+  *Component libraries -Material UI,Base UI,Ant,Chakra
+  *Style Components 
+  *Tailwind CSS Framework
+  *Tailwind CSS :
+-Css On the go(in the same file )
+-Reusability
+-Less bundle size
+-Flexible UI(Customizable )
+*Every style we write will be a new  classname 
+*In tailwind.config.js file ,in the content we need to tell our project that what files tailwind be used in ( which  files will be using tailwind classes )
+*To give our own value we have [] for example : w-[20]
+*The whole UI layer is powered by the data layer 
+*The data layer consists of the states and the props    
+
+**13
+*When we pass data parent to child and then to its child and continue all of these process is known as Props drilling 
+*One way to pass data from child to parent is to we can use coustom hooks (not viable way)
