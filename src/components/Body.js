@@ -1,22 +1,22 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
-
 import RestrauntCard from "./RestrurantCard";
 import Shimmer from "./Shimmer"
 import { filterData } from "../utils/helper";
 import useOnline from "../utils/useOnline";
-
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
     const [filteredrestaurants, setFilteredRestaurants] = useState([]);
     const [allrestaurants, setAllRestaurants] = useState([]);
+    const { user, setUser } = useContext(UserContext);
 
-    const [searchText, setSearchText] = useState("");//used to create state variable
+    const [searchText, setSearchText] = useState(""); //used to create state variable
 
     useEffect(() => {
         getRestaurants();
     }, []);
-
+    // shahkeshh
 
     async function getRestaurants() {
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.385044&lng=78.486671&page_type=DESKTOP_WEB_LISTING");
@@ -61,6 +61,29 @@ const Body = () => {
                         }
                     }
                 >Search</button>
+
+                <input value={user.name} onChange={
+                    e => setUser(
+                        {
+                            ...user,
+                            name: e.target.value,
+                        }
+                    )
+                } >
+
+                </input>
+
+                <input value={user.email} onChange={
+                    e => setUser(
+                        {
+                            ...user, 
+                            email: e.target.value,
+                            
+                        }
+                    )
+                } >
+
+                </input>
             </div>
 
             <div className="flex flex-wrap justify-center">
@@ -70,7 +93,6 @@ const Body = () => {
                         </Link>
                     })
                 }
-
 
             </div>
         </>

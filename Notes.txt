@@ -109,3 +109,13 @@ dont write above code in the Applayout component bcoz it will then lazy load it 
 **13
 *When we pass data parent to child and then to its child and continue all of these process is known as Props drilling 
 *One way to pass data from child to parent is to we can use coustom hooks (not viable way)
+*Components cant modify the state variables of other componenet through them and to do this we should have a common state variable for both the componenets and then only this would be possible (The parent element of both the siblings would have a state so its shared between them and this concept is called lifiting the state up)
+*If we need same data across all our app we have to store it in a central space ,we wont keep data in local storage because its inside the browser but we are talking about react state ,and also updating the local storage is a heavy operation (constly) so we need to have the data inside our react app and store it in a central place and react gives us this central place which is known as context 
+* creteContex takes in some data that we need all across our application( it takes in some default value of the context)
+*Context is not specific to any component  its central for all the component
+*Context is like a useState for whole application
+*In class based componenet as we cant use useContext so we will use our context as componenet
+*We can modify the data inside the context using a provider (<contextName.Provider value={modifiedObject}>
+Here in between this tag will be all the componenets which are using the context  data ,and the componenets written outside this tag wont refect the change the in the data value of context 
+<contextName.Provider/>
+)

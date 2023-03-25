@@ -1,4 +1,4 @@
-import React, { lazy, Suspense  } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header"
 import Body from "./components/Body"
@@ -10,19 +10,32 @@ import Contact from "./components/Contact";
 import RestaurantMenu from "./components/RestrauntMenu";
 import Profile from "./components/Profile";
 import Shimmer from "./components/Shimmer";
+import UserContext from "./utils/UserContext";
 // import Instamart from "./components/Instamart";
 
 // Dynamic import 
 const Instamart = lazy(() => import("./components/Instamart"));
 
 const AppLayout = () => {
+    const [user, setUser] = useState(
+        {
+            name: "Samir Keshwani",
+            email: "sam@gmail.com",
+        }
+    );
 
     return (
         <>
-            <Header />
-            {/* Outlet here we have to fill in different pages  */}
-            <Outlet />
-            <Footer />
+        {/* Here in the value we are writing the one with which we want to override  */}
+            <UserContext.Provider value={{
+                user: user,
+                setUser:setUser,
+            }}>
+                <Header />
+                {/* Outlet here we have to fill in different pages  */}
+                <Outlet />
+                <Footer />
+            </UserContext.Provider>
         </>
     );
 };
@@ -35,7 +48,7 @@ const appRouter = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <Body  />,
+                element: <Body />,
             },
             {
                 path: "/about",
