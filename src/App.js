@@ -12,8 +12,10 @@ import Profile from "./components/Profile";
 import Shimmer from "./components/Shimmer";
 import UserContext from "./utils/UserContext";
 // import Instamart from "./components/Instamart";
-
+import { Provider } from "react-redux";
 // Dynamic import 
+import store from "./utils/store";
+import Cart from "./components/Cart";
 const Instamart = lazy(() => import("./components/Instamart"));
 
 const AppLayout = () => {
@@ -25,18 +27,18 @@ const AppLayout = () => {
     );
 
     return (
-        <>
-        {/* Here in the value we are writing the one with which we want to override  */}
+        <Provider store={store} >
+            {/* Here in the value we are writing the one with which we want to override  */}
             <UserContext.Provider value={{
                 user: user,
-                setUser:setUser,
+                setUser: setUser,
             }}>
                 <Header />
                 {/* Outlet here we have to fill in different pages  */}
                 <Outlet />
                 <Footer />
             </UserContext.Provider>
-        </>
+        </Provider>
     );
 };
 
@@ -73,11 +75,17 @@ const appRouter = createBrowserRouter([
             },
             {
                 path: "/instamart",
-                element: <Suspense fallback={<Shimmer />}>
+                element: (<Suspense fallback={<Shimmer />}>
                     <Instamart />
-                </Suspense>,
-
+                </Suspense>
+                ),
             },
+            {
+                path: "/cart",
+                element: <Cart />,
+
+            }
+
         ],
 
     },

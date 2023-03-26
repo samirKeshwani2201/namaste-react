@@ -119,3 +119,40 @@ dont write above code in the Applayout component bcoz it will then lazy load it 
 Here in between this tag will be all the componenets which are using the context  data ,and the componenets written outside this tag wont refect the change the in the data value of context 
 <contextName.Provider/>
 )
+
+**14
+*Instead of creating different contexts we can create a redux store
+*At the end of the day redux store is like a big object 
+*All the componenet will be able to access the redux store ,we will have only a single store for holding everything ,we will create logical separation into our store ,we will create slices of our store to segregate the data
+*Our componenets cant directly modify the cart ,we will have to dispatch an action ,this action will call a function and the function will modify the store ,the function is called reducer 
+  DISPATCHES ACTION-->CALL  REDUCER FUNCTION -->UPDATE SLICE OF REDUX STORE 
+* Selector :If we want to read the data of the store we have to call the selector(selecting the portion of the store )
+ *Selector is a hook 
+ *When we use selector,it is known as Subscribing to the store (subscribe to the store means it is means its in sync with the store  so when store modifies UI will automatically modify)
+*npm install react-redux : This we installed because we want to bridge between react and redux 
+*npm install @reduxjs/toolkit this is the core library contains store & slice and so on 
+*To provide the store to the application we need to tell that this is our store ,and we need a provider for it 
+*In reducer we say that what action will call which function
+reducers will contain mapping of actions and the reducer function
+*We will import reducers into our store and put the reducers in the store 
+
+
+** *CREATE STORE 
+        -configureStore()-RTK
+    *PROVIDED THE STORE 
+        -<Provider store={store}> - react-redux
+    *SLICE 
+      RTK  -createSlice(
+        {
+            name:"",
+            initialState :,
+            reducers:{},
+
+        }
+      ) 
+
+    * PUT THE SLICE INTO STORE 
+
+ *dispatch(addItem("Grapes")); here addItem is the action and Grapes is the payload 
+ *Our component should not subscribe to the whole store because it degrads the performance ,as everytime the slice changes the the componenet subscribed will get changed ,so we should subscribe only to  the slice which are required 
+*Middleware ,Thunk, RTK query read  

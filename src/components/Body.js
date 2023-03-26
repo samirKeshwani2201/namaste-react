@@ -51,7 +51,6 @@ const Body = () => {
                     }
                 />
                 <button
-
                     className="m-2 p-2 bg-purple-900  hover:bg-gray-500   text-white rounded-md"
                     onClick={
                         () => {
@@ -76,9 +75,9 @@ const Body = () => {
                 <input value={user.email} onChange={
                     e => setUser(
                         {
-                            ...user, 
+                            ...user,
                             email: e.target.value,
-                            
+
                         }
                     )
                 } >
