@@ -155,4 +155,19 @@ reducers will contain mapping of actions and the reducer function
 
  *dispatch(addItem("Grapes")); here addItem is the action and Grapes is the payload 
  *Our component should not subscribe to the whole store because it degrads the performance ,as everytime the slice changes the the componenet subscribed will get changed ,so we should subscribe only to  the slice which are required 
-*Middleware ,Thunk, RTK query read  
+*Middleware ,Thunk, RTK query read 
+
+**15 
+*When we write a new code ,it should not break the existing code so for that we build the testcases 
+*Different Type of Testing :
+-Manual Testing 
+-Automation Testing 
+  -Selenium testing 
+-E2E testing =>covers entire user journey
+-Unit testing
+-Integration testing 
+*we use jset for testing ths javascript 
+*INSTALL REACT TESTING LIBRARY =>INSTALL JEST =>CONFIGURE JSET =>INSTALLED jest-enviroment-jsdom=> CREATE FIRST TEST FILE =>CONFIGURE BABEL JEST=> Wrote expect sum test => gitignore coverage report 
+*Whatever we write inside __tests__ folder will be considered as test files by jest 
+*babelrc requires JSON,and json and js object are not the same 
+*As test wont be able to idetify the png files so we cerate a dummy png files and it will understand that its mock file by doing configuration in the jest file 

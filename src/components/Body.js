@@ -50,7 +50,7 @@ const Body = () => {
                     }
                     }
                 />
-                <button
+                <button data-testid="search-btn"
                     className="m-2 p-2 bg-purple-900  hover:bg-gray-500   text-white rounded-md"
                     onClick={
                         () => {
@@ -85,7 +85,7 @@ const Body = () => {
                 </input>
             </div>
 
-            <div className="flex flex-wrap justify-center">
+            <div data-testid="res-list" className="flex flex-wrap justify-center">
                 {
                     filteredrestaurants.map(restraurant => {
                         return <Link key={restraurant.data.id} to={"/restaurant/" + restraurant.data.id}><RestrauntCard   {...restraurant.data} />
